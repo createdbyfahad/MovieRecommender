@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+	<title>Movie Recommendation System</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div id="app" class="container">
+	<nav class="navbar navbar-light bg-light header">
+		<span class="navbar-brand mb-0 h1">Movie Recommender</span>
+		<span class="nav-item">
+			<a class="btn btn-dark" href="http://google.com">Github</a>
+		</span>
+	</nav>
+	<div class="main">
+		<div class="chosen-movies-bar row col-12 col-md-10 offset-md-1">
+			<movie-box v-for="n in 4" :key=n :movie=selected_movies[n-1]></movie-box>
+		</div>
+		<div class="search-box-wrapper form-inline row col-12 col-md-10 offset-md-1">
+			<el-autocomplete
+			  v-model="title_search"
+			  :fetch-suggestions="querySearchAsync"
+			  placeholder="What movies do you like?"
+			  value-key="full_title"
+			  class="col-10"
+			  @select="handleSelect"
+			></el-autocomplete>
+			<button type="submit" class="btn btn-primary col-2" v-on:click="fetch_predictions">Suggest</button>
+		</div>
+		<div v-if=suggested_movies[0] class="suggested-movies-wrapper">
+			<div class="chosen-movies-bar col-12 row">
+				<movie-box v-for="n in 4" :key=n :movie=suggested_movies[n-1]></movie-box>
+			</div>
+			<div class="chosen-movies-bar col-12 row">
+				<movie-box v-for="n in 4" :key=n :movie=suggested_movies[n+3]></movie-box>
+			</div>
+			<div class="chosen-movies-bar col-12 row">
+				<movie-box v-for="n in 4" :key=n :movie=suggested_movies[n+7]></movie-box>
+			</div>
+			<div class="chosen-movies-bar col-12 row">
+				<movie-box v-for="n in 4" :key=n :movie=suggested_movies[n+11]></movie-box>
+			</div>
+			<div class="chosen-movies-bar col-12 row">
+				<movie-box v-for="n in 4" :key=n :movie=suggested_movies[n+15]></movie-box>
+			</div>
+		</div>
+	</div>
+	<div class="navbar navbar-light bg-light footer">
+		<span>
+			Movie Recommender communicates with an API that has a trained model based on 100 thousands reviews, and through KNN technique, it suggests what movies will the user like besed on the given movies. Created by <a href="http://github.com/createdbyfahad" target="_blank">Fahad Alarefi</a>, 2019.
+		</span>
+	</div>
+</div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script src="/static/app.js"></script>
+</html>
