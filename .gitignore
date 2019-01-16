@@ -121,3 +121,7 @@ trained_model
 10m/
 
 .ipynb_checkpoints/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
