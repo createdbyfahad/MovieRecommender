@@ -1,5 +1,12 @@
 # Movie Recommender 
 
+## Screenshots
+<p>
+<img src="https://user-images.githubusercontent.com/37724969/51239585-a6d9ea80-192e-11e9-8199-f3199f15cec1.png" width="415" alt="sc1">
+<img src="https://user-images.githubusercontent.com/37724969/51239588-a93c4480-192e-11e9-9849-de9af2addb30.png" width="415" alt="sc2">
+</p>
+
+
 ## Author:
 
 Fahad Alarefi
