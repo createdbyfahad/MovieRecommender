@@ -1,4 +1,7 @@
 # Movie Recommender 
+Guess what movies will the user like based on their favorite movies!
+
+Demo: https://bit.ly/2DOYw70
 
 ## Screenshots
 <p>
