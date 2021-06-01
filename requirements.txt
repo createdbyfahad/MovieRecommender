@@ -29,6 +29,6 @@ scikit-surprise==1.0.6
 scipy==1.2.0
 six==1.12.0
 surprise==0.1
-urllib3==1.24.1
+urllib3==1.26.5
 virtualenv==16.2.0
 Werkzeug==0.14.1
